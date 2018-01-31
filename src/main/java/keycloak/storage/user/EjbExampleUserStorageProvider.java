@@ -39,7 +39,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import keycloak.bean.UserEntity;
-import keycloak.bean.UsersAuthSmsCode;
 import static keycloak.storage.util.hashUtil.encodeToHex;
 import static keycloak.storage.util.hashUtil.genSalt;
 import static keycloak.storage.util.hashUtil.sha1;

@@ -20,7 +20,7 @@ import javax.persistence.EntityManager;
 import keycloak.bean.UserAttribute;
 import keycloak.bean.UserEntity;
 import keycloak.bean.UserRequiredAction;
-import keycloak.bean.UsersAuthSmsCode;
+import keycloak.bean.UsersSmsMessages;
 import static keycloak.storage.util.hashUtil.encodeToHex;
 import static keycloak.storage.util.hashUtil.genSalt;
 //import static keycloak.storage.util.hashUtil.sha1ToString;
@@ -684,22 +684,22 @@ public class UserAdapter extends AbstractUserAdapterFederatedStorage {
         return super.getRequiredActions();
     }
     
-    public Collection<UsersAuthSmsCode> getAuthSmsCode() {
-        return entity.gettUsersAuthSmsCodeCollection();
+    public Collection<UsersSmsMessages> getUserSmsMessages() {
+        return entity.gettUsersSmsMessagesCollection();
     }
     
-    public void addUserAuthSmsCode(UsersAuthSmsCode code) {
+    public void addUserSmsMessages(UsersSmsMessages code) {
         log.info("addUserAuthSmsCode => " + code);
-        if (entity.gettUsersAuthSmsCodeCollection() != null) {
+        if (entity.gettUsersSmsMessagesCollection() != null) {
             code.setUserId(entity);
             code.setDateCode(new Date());
-            entity.gettUsersAuthSmsCodeCollection().add(code);
+            entity.gettUsersSmsMessagesCollection().add(code);
         } else {
-            Collection<UsersAuthSmsCode> listCode = new LinkedList();
+            Collection<UsersSmsMessages> listCode = new LinkedList();
             code.setUserId(entity);
             listCode.add(code);
             code.setDateCode(new Date());
-            entity.settUsersAuthSmsCodeCollection(listCode);
+            entity.settUsersSmsMessagesCollection(listCode);
         }
     }
 
